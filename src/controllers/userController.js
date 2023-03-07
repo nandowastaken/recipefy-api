@@ -1,15 +1,14 @@
 const Users = require('../models/users')
 const database = require('../db')
-const bcrypt = require('bcrypt')
 
-exports.create = async (req, res) => {
+exports.inserirUser = async (req, res) => {
     await database.sync()
     const body = req.body
 
-    if (body.username && body.password && body.firstname && body.lastname && body.email) {
+    if (body.name && body.password && body.email) {
         Users.create({
             name: body.name,
-            password: bcrypt.hash(body.password),
+            password: body.password,
             email: body.email,
             photo: body.photo,
             weight: body.weight,

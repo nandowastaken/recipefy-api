@@ -26,18 +26,15 @@ const Users = database.define('users', {
     },
     photo:
     {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
     },
     weight:
     {
-        type: Sequelize.FLOAT,
-        allowNull: true
+        type: Sequelize.FLOAT
     },
     height:
     {
-        type: Sequelize.FLOAT,
-        allowNull: true
+        type: Sequelize.FLOAT
     }
 
 
