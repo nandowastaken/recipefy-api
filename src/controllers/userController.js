@@ -8,11 +8,13 @@ exports.create = async (req, res) => {
 
     if (body.username && body.password && body.firstname && body.lastname && body.email) {
         Users.create({
-            username: body.username,
+            name: body.name,
             password: bcrypt.hash(body.password),
-            firstname: body.firstname,
-            lastname: body.lastname,
-            email: body.email
+            email: body.email,
+            photo: body.photo,
+            weight: body.weight,
+            height: body.height
+
         })
         .then(data => {
             res.send(data);

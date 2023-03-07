@@ -9,7 +9,7 @@ const Users = database.define('users', {
         allowNull: false,
         primaryKey: true
     },
-    username:
+    name:
     {
         type: Sequelize.STRING,
         allowNull: false
@@ -19,22 +19,26 @@ const Users = database.define('users', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    firstname:
-    {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    lastname:
-    {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     email:
     {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    photo:
+    {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    weight:
+    {
+        type: Sequelize.FLOAT,
+        allowNull: true
+    },
+    height:
+    {
+        type: Sequelize.FLOAT,
+        allowNull: true
     }
-
 
 
 })
