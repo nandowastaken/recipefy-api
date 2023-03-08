@@ -13,7 +13,8 @@ const connection = new Sequelize({
 })
 
 const testConnection = async () => {
-    await connection.authenticate();
+    await connection.authenticate()
+    await connection.sync()
 }
 try {
     testConnection()
