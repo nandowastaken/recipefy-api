@@ -12,17 +12,27 @@ const Users = database.define('users', {
     name:
     {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     password: 
     {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     email:
     {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            isEmail: true,
+            notEmpty: true
+        }
     },
     photo:
     {
@@ -39,5 +49,7 @@ const Users = database.define('users', {
 
 
 })
+
+console.log(Users)
 
 module.exports = Users
