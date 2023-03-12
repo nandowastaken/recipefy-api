@@ -50,6 +50,4 @@ const Users = database.define('Usuário', {
 
 })
 
-console.log(Users)
-
 module.exports = Users
