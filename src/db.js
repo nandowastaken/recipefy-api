@@ -8,7 +8,8 @@ const connection = new Sequelize({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     define: {
-        timestamps: false
+        timestamps: false,
+        freezeTableName: true
     }
 })
 
