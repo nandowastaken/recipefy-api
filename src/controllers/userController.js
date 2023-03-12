@@ -29,14 +29,14 @@ module.exports = {
     inserirUser: async (req, res) => {
         const body = req.body
     
-        if (body.name && body.password && body.email) {
+        if (body.nome && body.senha && body.email) {
             Users.create({
-                name: body.name,
-                password: body.password,
+                nome: body.nome,
+                senha: body.senha,
                 email: body.email,
-                photo: body.photo,
-                weight: body.weight,
-                height: body.height
+                foto: body.foto,
+                peso: body.peso,
+                altura: body.altura
     
             })
             .then(data => {

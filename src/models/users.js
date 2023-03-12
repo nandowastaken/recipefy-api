@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const database = require('../db')
 
-const Users = database.define('users', {
+const Users = database.define('Usuário', {
     id: 
     {
         type: Sequelize.INTEGER,
@@ -9,7 +9,7 @@ const Users = database.define('users', {
         allowNull: false,
         primaryKey: true
     },
-    name:
+    nome:
     {
         type: Sequelize.STRING,
         allowNull: false,
@@ -17,7 +17,7 @@ const Users = database.define('users', {
             notEmpty: true
         }
     },
-    password: 
+    senha: 
     {
         type: Sequelize.STRING,
         allowNull: false,
@@ -34,15 +34,15 @@ const Users = database.define('users', {
             notEmpty: true
         }
     },
-    photo:
+    foto:
     {
         type: Sequelize.STRING
     },
-    weight:
+    peso:
     {
         type: Sequelize.FLOAT
     },
-    height:
+    altura:
     {
         type: Sequelize.FLOAT
     }
