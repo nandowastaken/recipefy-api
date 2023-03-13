@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize')
-const Recipes = require('../models/recipes') 
+const Tag = require('../models/tags')
 
 module.exports = {
     buscarTodos: async (req, res) => {
-        Recipes.findAll()
+        Tag.findAll()
         .then(data => {
             res.send(data)
         })
@@ -14,28 +14,24 @@ module.exports = {
         })
     },
 
-    buscarReceita: async (req, res) => {
-        Recipes.findByPk(req.params.id)
+    buscarTag: async (req, res) => {
+        Tag.findByPk(req.params.id)
         .then(data => {
             res.send(data)
         })
         .catch(error => {
-            res.status(500).send({
-                message: error.message || 'Algo deu errado.'
+            res.status(400).send({
+                message: error.message || 'Algo deu errado'
             })
         })
     },
 
-    inserirReceita: async (req, res) => {
+    inserirTag: async (req, res) => {
         const body = req.body
-    
-        if (body.nome && body.senha && body.email) {
-            Recipes.create({
-                nome: body.nome,
-                descricao: body.descricao,
-                instrucoes: body.instrucoes,
-                porcoes: body.porcoes,
-                usuario: body.usuario
+
+        if (body.tag) {
+            Tag.create({
+                tag: body.tag
             })
             .then(data => {
                 res.send(data)
@@ -46,15 +42,12 @@ module.exports = {
                 })
             })
         } else {
-            res.status(400).send({
-                message: 'Todos os campos precisam estar preenchidos.'
-            })
+            res.status(400).send('Campo obrigatório não preenchido.')
         }
     },
-    
 
-    editarReceita: async (req, res) => {
-        Receita.update(req.body, {
+    editarTag: async (req, res) => {
+        Tag.update(req.body, {
             where: {
                 id: req.params.id
             }
@@ -64,7 +57,7 @@ module.exports = {
                 res.send(req.body)
             } else {
                 let count = 0
-                Receita.findOne( {
+                Tag.findOne( {
                     where: {
                         id: req.params.id 
                     }
@@ -85,7 +78,7 @@ module.exports = {
                             res.status(400).send('Alvo não encontrado.')
                         }
                     } else {
-                        res.status(400).send('Receita inválido.')
+                        res.status(400).send('Tag inválida.')
                     }
                     
                 })
@@ -102,20 +95,17 @@ module.exports = {
         })
     },
 
-
-    excluirReceita: async (req, res) => {
-        Recipes.destroy({
+    deletarTag: async (req, res) => {
+        Tag.destroy({
             where: {
                 id: req.params.id
             }
         })
         .then(result => {
-            // falsy and truthy concepts : the *number* 1 is truthy and the *number* 0 is falsy
-            // result can only be 0 or 1
             if (Number(result)) {
-                res.send('Receita removido com sucesso.')
+                res.send('Tag removida com sucesso.')
             } else {
-                res.status(400).send('Não foi possível realizar esta operação')
+                res.status(400).send('Não foi possível realizar esta operação. Tag não encontrado.')
             }
         })
         .catch(error => {

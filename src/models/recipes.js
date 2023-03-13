@@ -40,7 +40,7 @@ const Receitas = database.define('Receitas', {
 
 console.log(Receitas)
 
-Receitas.belongsTo(Unit)
-Unit.hasMany(Ingredients)
+Receitas.belongsTo(user_id)
+user_id.hasMany(Receitas)
 
 module.exports = Receitas
