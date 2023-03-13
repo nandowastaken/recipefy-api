@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize')
 const database = require('../db')
+const Unidade = require('./unidade')
 
-const Users = database.define('Usuário', {
+const Ingrediente = database.define('Ingrediente', {
     id: 
     {
         type: Sequelize.INTEGER,
@@ -17,37 +18,22 @@ const Users = database.define('Usuário', {
             notEmpty: true
         }
     },
-    senha: 
+    kcal: 
     {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
+        type: Sequelize.FLOAT,
     },
-    email:
-    {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true,
-            notEmpty: true
-        }
-    },
-    foto:
-    {
-        type: Sequelize.STRING
-    },
-    peso:
+    carboidratos:
     {
         type: Sequelize.FLOAT
     },
-    altura:
+    lipidios:
     {
         type: Sequelize.FLOAT
     }
 
-
 })
 
-module.exports = Users
+Ingrediente.belongsTo(Unidade)
+Unidade.hasMany(Ingrediente)
+
+module.exports = Ingrediente

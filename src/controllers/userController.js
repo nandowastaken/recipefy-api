@@ -49,7 +49,7 @@ module.exports = {
             })
         } else {
             res.status(400).send({
-                message: 'Todos os campos precisam estar preenchidos.'
+                message: 'Campos obrigatórios não preenchidos.'
             })
         }
     },
@@ -88,7 +88,7 @@ module.exports = {
             if (Number(result)) {
                 res.send('Usuário removido com sucesso.')
             } else {
-                res.status(400).send('Não foi possível realizar esta operação')
+                res.status(400).send('Não foi possível realizar esta operação. Usuário inexistente.')
             }
         })
         .catch(error => {
