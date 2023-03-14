@@ -10,5 +10,4 @@ router.post('/dieta', dietaController.inserirDieta)
 router.put('/dieta/:id', dietaController.editarDieta)
 router.delete('/dieta/:id', dietaController.deletarDieta)
 
-
 module.exports = router
