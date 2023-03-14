@@ -29,13 +29,12 @@ module.exports = {
     inserirReceita: async (req, res) => {
         const body = req.body
     
-        if (body.nome && body.senha && body.email) {
+        if (body.nome && body.instrucoes && body.porcoes) {
             Recipes.create({
                 nome: body.nome,
                 descricao: body.descricao,
                 instrucoes: body.instrucoes,
                 porcoes: body.porcoes,
-                usuario: body.usuario
             })
             .then(data => {
                 res.send(data)
@@ -54,7 +53,7 @@ module.exports = {
     
 
     editarReceita: async (req, res) => {
-        Receita.update(req.body, {
+        Recipes.update(req.body, {
             where: {
                 id: req.params.id
             }
@@ -64,7 +63,7 @@ module.exports = {
                 res.send(req.body)
             } else {
                 let count = 0
-                Receita.findOne( {
+                Recipes.findOne( {
                     where: {
                         id: req.params.id 
                     }
@@ -85,7 +84,7 @@ module.exports = {
                             res.status(400).send('Alvo não encontrado.')
                         }
                     } else {
-                        res.status(400).send('Receita inválido.')
+                        res.status(400).send('Recipes inválida.')
                     }
                     
                 })

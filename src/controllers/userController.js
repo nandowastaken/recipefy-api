@@ -61,6 +61,7 @@ module.exports = {
             }
         })
         .then(result => {
+            console.log(result)
             // falsy and truthy concepts : the *number* 1 is truthy and the *number* 0 is falsy
             // result can only be 0 or 1
             if (Number(result)) {

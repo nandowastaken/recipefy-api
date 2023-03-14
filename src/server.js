@@ -7,6 +7,7 @@ const tagRoute = require('./routes/tagRoute')
 const dietaRoute = require('./routes/dietaRoute')
 const intoleranciaRoute = require('./routes/intoleranciaRoute')
 const unidadeRoute = require('./routes/unidadeRoute')
+const recipeRoute =  require('./routes/recipeRoute')
 
 const server = express()
 server.use(express.urlencoded({extended: false}))
@@ -16,6 +17,7 @@ server.use(tagRoute)
 server.use(dietaRoute)
 server.use(intoleranciaRoute)
 server.use(unidadeRoute)
+server.use(recipeRoute)
 
 const port = process.env.PORT
 server.listen(port, () => {

@@ -28,19 +28,10 @@ const Receitas = database.define('Receitas', {
         type: Sequelize.STRING,
         allowNull: false
    },
-   usuario:
-   {
-        type: Sequelize.STRING,
-        allowNull: false,
-
-   }
-
 
 })
 
-console.log(Receitas)
-
-Receitas.belongsTo(user_id)
-user_id.hasMany(Receitas)
+//Receitas.belongsTo(user_id)
+//user_id.hasMany(Receitas)
 
 module.exports = Receitas
