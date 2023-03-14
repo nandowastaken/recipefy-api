@@ -8,7 +8,6 @@ const dietaRoute = require('./routes/dietaRoute')
 const intoleranciaRoute = require('./routes/intoleranciaRoute')
 const unidadeRoute = require('./routes/unidadeRoute')
 
-
 const server = express()
 server.use(express.urlencoded({extended: false}))
 server.use(userRoute)

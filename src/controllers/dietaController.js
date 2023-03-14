@@ -31,12 +31,9 @@ module.exports = {
         if (body.nome) {
             Dieta.create({
                 nome: body.nome,
-<<<<<<< HEAD
-=======
                 kcal: body.kcal,
                 carboidratos: body.carboidratos,
                 lipidios: body.lipidios
->>>>>>> 5cc1e276afbeb74af860405f3cf2576b4b1c3962
             })
             .then(data => {
                 res.send(data)
@@ -110,11 +107,7 @@ module.exports = {
             if (Number(result)) {
                 res.send('Dieta removida com sucesso.')
             } else {
-<<<<<<< HEAD
-                res.status(400).send('Não foi possível realizar esta operação. Dieta não encontrado.')
-=======
                 res.status(400).send('Não foi possível realizar esta operação. Dieta não encontrada.')
->>>>>>> 5cc1e276afbeb74af860405f3cf2576b4b1c3962
             }
         })
         .catch(error => {
