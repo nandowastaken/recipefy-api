@@ -9,7 +9,7 @@ const Tag = database.define('Tag', {
     }
 })
 
-Tag.belongsTo(receitas_id)
-receitas_id.hasMany(Tag)
+//Tag.belongsTo(receitas_id)
+//receitas_id.hasMany(Tag)
 
 module.exports = Tag

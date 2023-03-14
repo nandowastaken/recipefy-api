@@ -2,7 +2,7 @@
   "name": "recipefy-back",
   "version": "1.0.0",
   "description": "backend recipefy",
-  "main": "index.js",
+  "main": "./src/server.js",
   "scripts": {
     "start": "nodemon ./src/server.js"
   },

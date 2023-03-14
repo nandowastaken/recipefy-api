@@ -9,3 +9,5 @@ router.get('/tag/:tag', tagsController.buscarTag)
 router.post('tag', tagsController.inserirTag)
 router.put('tag/:tag', tagsController.editarTag)
 router.delete('tag/:tag', tagsController.deletarTag)
+
+module.exports = router

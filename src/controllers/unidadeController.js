@@ -1,8 +1,8 @@
-const Dieta = require('../models/dieta')
+const Unidade = require('../models/unidade')
 
 module.exports = {
     buscarTodos: async (req, res) => {
-        Dieta.findAll()
+        Unidade.findAll()
         .then(data => {
             res.send(data)
         })
@@ -13,8 +13,8 @@ module.exports = {
         })
     },
 
-    buscarDieta: async (req, res) => {
-        Dieta.findByPk(req.params.id)
+    buscarUnidade: async (req, res) => {
+        Unidade.findByPk(req.params.id)
         .then(data => {
             res.send(data)
         })
@@ -25,18 +25,15 @@ module.exports = {
         })
     },
 
-    inserirDieta: async (req, res) => {
+    inserirUnidade: async (req, res) => {
         const body = req.body
 
         if (body.nome) {
-            Dieta.create({
+            Unidade.create({
                 nome: body.nome,
-<<<<<<< HEAD
-=======
                 kcal: body.kcal,
                 carboidratos: body.carboidratos,
                 lipidios: body.lipidios
->>>>>>> 5cc1e276afbeb74af860405f3cf2576b4b1c3962
             })
             .then(data => {
                 res.send(data)
@@ -51,8 +48,8 @@ module.exports = {
         }
     },
 
-    editarDieta: async (req, res) => {
-        Dieta.update(req.body, {
+    editarUnidade: async (req, res) => {
+        Unidade.update(req.body, {
             where: {
                 id: req.params.id
             }
@@ -62,7 +59,7 @@ module.exports = {
                 res.send(req.body)
             } else {
                 let count = 0
-                Dieta.findOne( {
+                Unidade.findOne( {
                     where: {
                         id: req.params.id 
                     }
@@ -83,7 +80,7 @@ module.exports = {
                             res.status(400).send('Alvo não encontrado.')
                         }
                     } else {
-                        res.status(400).send('Dieta inválida.')
+                        res.status(400).send('Unidade inválida.')
                     }
                     
                 })
@@ -100,21 +97,17 @@ module.exports = {
         })
     },
 
-    deletarDieta: async (req, res) => {
-        Dieta.destroy({
+    deletarUnidade: async (req, res) => {
+        Unidade.destroy({
             where: {
                 id: req.params.id
             }
         })
         .then(result => {
             if (Number(result)) {
-                res.send('Dieta removida com sucesso.')
+                res.send('Unidade removida com sucesso.')
             } else {
-<<<<<<< HEAD
-                res.status(400).send('Não foi possível realizar esta operação. Dieta não encontrado.')
-=======
-                res.status(400).send('Não foi possível realizar esta operação. Dieta não encontrada.')
->>>>>>> 5cc1e276afbeb74af860405f3cf2576b4b1c3962
+                res.status(400).send('Não foi possível realizar esta operação. Unidade não encontrada.')
             }
         })
         .catch(error => {
