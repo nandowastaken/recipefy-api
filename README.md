@@ -8,7 +8,7 @@ npm i || npm install
 ```
 #### Variáveis de ambiente:
 
-Crie um arquivo com o nome ```var.env``` e crie as variáveis necessárias nele.
+Crie um arquivo com o nome ```var.env``` no diretório principal e crie as variáveis necessárias nele.
 O arquivo deverá ficar assim:
 ```basic
 PORT = 3000
