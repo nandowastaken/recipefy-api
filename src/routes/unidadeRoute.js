@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-const UnidadeController = require('../controllers/UnidadeController')
+const unidadeController = require('../controllers/unidadeController')
 
-router.get('/unidades', UnidadeController.buscarTodos)
+router.get('/unidades', unidadeController.buscarTodos)
 
-router.get('/unidade/:id', UnidadeController.buscarUnidade)
-router.post('/unidade', UnidadeController.inserirUnidade)
-router.put('/unidade/:id', UnidadeController.editarUnidade)
-router.delete('/unidade/:id', UnidadeController.deletarUnidade)
+router.get('/unidade/:id', unidadeController.buscarUnidade)
+router.post('/unidade', unidadeController.inserirUnidade)
+router.put('/unidade/:id', unidadeController.editarUnidade)
+router.delete('/unidade/:id', unidadeController.deletarUnidade)
 
 
 module.exports = router
