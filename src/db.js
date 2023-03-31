@@ -1,5 +1,5 @@
-require('dotenv').config({path: 'var.env'})
-const Sequelize = require('sequelize')
+require('dotenv').config({path: 'var.env'});
+const Sequelize = require('sequelize');
 
 const connection = new Sequelize({
     dialect: 'mysql',
@@ -11,17 +11,17 @@ const connection = new Sequelize({
         timestamps: false,
         freezeTableName: true
     }
-})
+});
 
 const testConnection = async () => {
-    await connection.authenticate()
-    await connection.sync()
-}
+    await connection.authenticate();
+    await connection.sync();
+};
 try {
-    testConnection()
-    console.log('Conectado ao banco de dados com sucesso.')
+    testConnection();
+    console.log('Conectado ao banco de dados com sucesso.');
 } catch (error) {
-    console.log('Não foi possivel estabelecer uma conexão com o banco de dados.')    
+    console.log('Não foi possivel estabelecer uma conexão com o banco de dados.');    
 }
 
-module.exports = connection
+module.exports = connection;

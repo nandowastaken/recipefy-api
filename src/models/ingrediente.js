@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const database = require('../db')
-const Unidade = require('./unidade')
+const Sequelize = require('sequelize');
+const database = require('../db');
+const Unidade = require('./unidade');
 
 const Ingrediente = database.define('Ingrediente', {
     id: 
@@ -31,9 +31,9 @@ const Ingrediente = database.define('Ingrediente', {
         type: Sequelize.FLOAT
     }
 
-})
+});
 
-Ingrediente.belongsTo(Unidade)
-Unidade.hasMany(Ingrediente)
+Ingrediente.belongsTo(Unidade);
+Unidade.hasMany(Ingrediente);
 
-module.exports = Ingrediente
+module.exports = Ingrediente;

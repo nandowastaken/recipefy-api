@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const database = require('../db')
+const Sequelize = require('sequelize');
+const database = require('../db');
 
 const Intolerancia = database.define('Intolerancia', {
     id: 
@@ -17,6 +17,6 @@ const Intolerancia = database.define('Intolerancia', {
             notEmpty: true
         }
     }
-})
+});
 
-module.exports = Intolerancia
+module.exports = Intolerancia;

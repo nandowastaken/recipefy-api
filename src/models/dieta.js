@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const database = require('../db')
+const Sequelize = require('sequelize');
+const database = require('../db');
 
 const Dieta = database.define('Dieta', {
     id: 
@@ -17,6 +17,6 @@ const Dieta = database.define('Dieta', {
             notEmpty: true
         }
     }
-})
+});
 
-module.exports = Dieta
+module.exports = Dieta;

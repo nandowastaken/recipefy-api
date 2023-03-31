@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const database = require('../db')
+const Sequelize = require('sequelize');
+const database = require('../db');
 
 const Receitas = database.define('Receitas', {
     id: 
@@ -29,9 +29,9 @@ const Receitas = database.define('Receitas', {
         allowNull: false
    },
 
-})
+});
 
 //Receitas.belongsTo(user_id)
 //user_id.hasMany(Receitas)
 
-module.exports = Receitas
+module.exports = Receitas;
