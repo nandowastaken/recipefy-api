@@ -1,24 +1,25 @@
-const { Sequelize } = require('sequelize');
+const bcrypt = require('bcrypt');
 const Users = require('../models/users'); 
 
 const loginController = {
-  login: (req, res) => {
+  login: async (req, res) => {
     const { email, senha } = req.body;
     if (email && senha) {
       Users.findOne({
         where: {
           email,
-          senha,
         },
       })
-        .then((data) => {
-          if (data) {
-            res.send('Done');
-          } else {
-            res.status(400).send({
-              message: "Usuário ou senha inválidos.",
-            });
-          }
+        .then( (data) => {
+          bcrypt.compare(senha, data.dataValues.senha, (err, result) => {
+            if (result) {
+              res.send(data);
+            } else {
+              res.status(400).send({
+                  message: "Usuário ou senha inválidos.",
+              });
+            }
+          });
         })
         .catch((error) => {
           res.status(500).send({

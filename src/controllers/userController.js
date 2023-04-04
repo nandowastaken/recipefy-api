@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+const bcrypt = require('bcrypt');
 const Users = require('../models/users');
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
         if (body.nome && body.senha && body.email) {
             Users.create({
                 nome: body.nome,
-                senha: body.senha,
+                senha: await bcrypt.hash(body.senha, 10),
                 email: body.email,
                 foto: body.foto,
                 peso: body.peso,
