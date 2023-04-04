@@ -9,6 +9,7 @@ const intoleranciaRoute = require('./routes/intoleranciaRoute');
 const unidadeRoute = require('./routes/unidadeRoute');
 const recipeRoute =  require('./routes/recipeRoute');
 const loginRoute = require('./routes/loginRoute');
+const cadastroRoute = require('./routes/cadastroRoute');
 
 const server = express();
 server.use(express.urlencoded({extended: false}));
@@ -20,6 +21,7 @@ server.use(intoleranciaRoute);
 server.use(unidadeRoute);
 server.use(recipeRoute);
 server.use(loginRoute);
+server.use(cadastroRoute);
 
 const port = process.env.PORT;
 server.listen(port, () => {
