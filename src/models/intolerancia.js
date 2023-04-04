@@ -4,8 +4,8 @@ const database = require('../db');
 const Intolerancia = database.define('Intolerancia', {
     id: 
     {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true
     },

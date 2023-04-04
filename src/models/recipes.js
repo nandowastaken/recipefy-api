@@ -4,8 +4,8 @@ const database = require('../db');
 const Receitas = database.define('Receitas', {
     id: 
     {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true
     },

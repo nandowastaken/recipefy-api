@@ -4,8 +4,8 @@ const database = require('../db');
 const Unit = database.define('Unidade', {
     id: 
     {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true
     },
