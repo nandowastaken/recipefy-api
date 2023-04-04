@@ -1,5 +1,8 @@
 const bcrypt = require('bcrypt');
 const Users = require('../models/users');
+const jwt = require("jsonwebtoken");
+require('dotenv').config({path: 'var.env'});   
+const TOKEN_KEY = process.env.TOKEN_KEY;     
 
 module.exports = {
     buscarTodos: async (req, res) => {
@@ -40,7 +43,11 @@ module.exports = {
     
             })
             .then(data => {
-                res.send(data);
+                const token = jwt.sign({ userId: data.dataValues.id }, TOKEN_KEY, {
+                    expiresIn: "2h",
+                });
+
+                res.status(200).json({token});
             })
             .catch(error => {
                 res.status(500).send({
